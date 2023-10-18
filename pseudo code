@@ -1,0 +1,59 @@
+Minimum Reading = 0
+Maximum Reading = 999999999
+
+Residential Basic Bill amount = 5.00
+Residential amount bill per gallon = 0.0005
+
+Commercial Basic Bill Amount = 1000.00
+Commercial cut o = 4000000
+Commercial amount bill per gallon = 0.00025
+
+Industrial Basic bill amount = 1000.00
+Industrial Lower Cut o = 4000000
+Industrial Basic bill amount 2 = 2000.00
+Industrial higher cut o = 10000000
+Industrial Amount billed per gallon = 0.00025
+
+Customer code = input('Enter customer code (R, C, or I):')
+
+i Customer code is not R, C or I:
+    Output('Invalid input (customer code)')
+
+else:
+    Beginning Reading = (input only or integers('Enter beginning reading (between 0 and 999999999):'))
+    Ending Reading = (input only or integers('Enter ending reading (between 0 and 999999999):'))
+
+    i 0 is less than or equal to Beginning Reading is less than or equal to 999999999 or 0 is less than or equal to Ending Reading is less than or equal to 999999999 is not implied :
+       output('Invalid input (beginning or ending reading value is out o the range)')
+
+    else:
+        i Ending Reading is less than Beginning Reading then:
+            Gallons Used = (999999999 + 1 - Beginning Reading + Ending Reading) / 10
+        Or else:
+            Gallons Used = (Ending Reading / 10) - (Beginning Reading / 10)
+
+        i Customer code is 'R':
+           Amount Billed = $5.00 + $0.0005 * Gallons Used
+
+        And i Customer code is 'C then':
+           i Gallons Used is less than or equal to 4 Million:
+              Amount Billed = $1000.00
+           else:
+               Amount Billed = $1000.00 + $0.00025 * (Gallons Used - 4,000,000)
+
+        When Customer code is ‘I’:
+            i Gallons Used is less than or equal to 4 Million:
+               Amount Billed = $1000.00
+
+           And i Gallons Used is less than or equal to 10 Million:
+               Amount Billed = $2000.00
+
+            else:
+                Amount Billed = $2000.00 + $0.00025 * (Gallons Used - 10,000,000)
+
+        Output ('Customer code: {Customer code}')
+        Output('Beginning reading value in gallons and tenths o gallon {Beginning Reading / 10 (Rounded to 1 decimal place)}')
+        Output('Ending reading value in gallons and tenths o gallon {Ending Reading / 10.0(Rounded to 1 decimal place)}')
+        Output('Gallons o water used: {Gallons Used(Rounded to 1 decimal place)}')
+        Output('Amount billed: ${Amount Billed (Rounded to 2 decimal place)}')
+ 
